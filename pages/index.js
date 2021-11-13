@@ -22,7 +22,7 @@ class MetaButton extends React.Component {
   render() {
     if(this.state.account) {
       return (
-        <h3>Your account number is : {this.state.account}</h3>
+        <div>Your account number is : {this.state.account}</div>
       )
     } else {
       return (
@@ -42,6 +42,7 @@ export default function Home() {
       <Head>
         <title>NFT Video Access Demo</title>
         <link rel="icon" href="/favicon.ico" />
+        <script type="text/javascript" src="/js/hello.js"></script>
       </Head>
 
       <main>
@@ -51,6 +52,12 @@ export default function Home() {
 
         <p className="description">
           <MetaButton />
+        </p>
+
+        <p className="script-demo">
+          <button onClick={window.sayHello} >
+            Say Hello
+          </button>
         </p>
 
       </main>
