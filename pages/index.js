@@ -37,6 +37,10 @@ class MetaButton extends React.Component {
 
 export default function Home() {
 
+  function onHello() {
+    window.sayHello();
+  }
+
   return (
     <div className="container">
       <Head>
@@ -55,7 +59,7 @@ export default function Home() {
         </p>
 
         <p className="script-demo">
-          <button onClick={window.sayHello} >
+          <button onClick={onHello} >
             Say Hello
           </button>
         </p>
