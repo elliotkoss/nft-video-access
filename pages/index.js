@@ -1,46 +1,45 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import React from 'react'
-
+import Head from "next/head";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 class MetaButton extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = {account:false};
+    this.state = { account: false };
   }
-
 
   connectMeta = async () => {
     // window.ethereum
-    const accounts = await ethereum.request({method:'eth_requestAccounts'})
+    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
     this.setState({
-      account:accounts[0]
+      account: accounts[0],
     });
-  }
+  };
 
   render() {
-    if(this.state.account) {
-      return (
-        <div>Your account number is : {this.state.account}</div>
-      )
+    if (this.state.account) {
+      return <div>Your account number is : {this.state.account}</div>;
     } else {
-      return (
-        <button onClick={this.connectMeta}>
-          Connect Meta
-        </button>
-      )
-
+      return <button onClick={this.connectMeta}>Connect Meta</button>;
     }
   }
 }
 
 export default function Home() {
-
-  function onHello() {
-    window.sayHello();
+  function setupUnlock() {
+    window.unlockSetup();
   }
-
+  const [locked, setLockedKey] = useState("pending");
+  const unlockHandler = (e) => {
+    setLockedKey(e.detail);
+  };
+  async function checkout() {
+    window.unlockProtocol && window.unlockProtocol.loadCheckoutModal();
+  }
+  useEffect(() => {
+    setupUnlock();
+    window.addEventListener("unlockProtocol", unlockHandler);
+  });
   return (
     <div className="container">
       <Head>
@@ -50,20 +49,30 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
-          NFT Video Access Demo
-        </h1>
+        <h1 className="title">NFT Video Access Demo</h1>
 
         <p className="description">
           <MetaButton />
         </p>
 
         <p className="script-demo">
-          <button onClick={onHello} >
-            Say Hello
-          </button>
+          {locked === "locked" && (
+            <div onClick={checkout} style={{ cursor: "pointer" }}>
+              Grab a ticket for the Livestream here! (Click me!)
+              <span aria-label="locked" role="img">
+                🔒
+              </span>
+            </div>
+          )}
+          {locked === "unlocked" && (
+            <div>
+              Enjoy the Livestream!
+              <span aria-label="unlocked" role="img">
+                🗝
+              </span>
+            </div>
+          )}
         </p>
-
       </main>
 
       <footer>
@@ -222,5 +231,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
