@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
@@ -19,7 +18,7 @@ export default function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       <footer className={styles.footer}>
-        <div><a href="https://github.com/elliotkoss/nft-video-access" target="_blank" ><Image src="/images/github-button.svg" width="91" height="51" /></a></div>
+        <div><a href="https://github.com/elliotkoss/nft-video-access" target="_blank" ><img src="/images/github-button.svg" width="91" height="51" /></a></div>
         <div>Built by</div>
         <div>Elliot Koss, Shaquil Hansford, Jordan Green,<br /> Aaron Surty, and Marcus Oshodi</div>
         <div className={styles.nftAgreement}>Our NFT Agreement</div>
