@@ -8,13 +8,13 @@ function unlockSetup() {
   window.unlockProtocolConfig = {
     network: 4,
     locks: {
-      "0x40eC871df1898C308AE8e965031eAE26d5a7Ca45": {
-        name: "Test Livestream",
+      "0x6F6da4B0d5d19f0A889681bf387dFAb7b5503Da4": {
+        name: "Purchase your ticket today!",
       },
     },
     icon: "https://unlock-protocol.com/static/images/svg/unlock-word-mark.svg",
     callToAction: {
-      default: "Unlock the Livestream here!",
+        default: "See Da Boss Perform Live 'The Limits of Loving'",
     },
   };
 }
