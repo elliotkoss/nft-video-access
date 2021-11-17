@@ -5,6 +5,7 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import React, { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
 
 export default function Home({ allPostsData }) {
   function setupUnlock() {
@@ -30,6 +31,14 @@ export default function Home({ allPostsData }) {
       window.removeEventListener("unlockProtocol", unlockHandler);
     };
   }, []);
+
+  const router = useRouter();
+
+  const showEvent = (e) => {
+    e.preventDefault();
+    router.push('/streams/0d6foz59s7i0l8zx');
+  }
+
   return (
     <Layout home>
       <Head>
@@ -42,21 +51,23 @@ export default function Home({ allPostsData }) {
         </a>
         <div>2. Watch livestream</div>
       </section>
-      {locked === "locked" && (
+      {(locked === "locked") && (
         <div>
           <section
             className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
           >
-            <button onClick={checkout}>Connect Wallet</button>
+            <button className="btn btn-blue" onClick={checkout}>Connect Wallets</button>
           </section>
         </div>
       )}
-      {locked === "unlocked" && (
-        <div>
-          <Link href="/streams/0d6foz59s7i0l8zx">
-            Enjoy the Livestream!(click me)
-          </Link>
-        </div>
+      {(locked === "unlocked") && (
+        <section
+          className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
+        >
+          <button className="btn btn-blue" onClick={showEvent}>
+            Enjoy the Event!(click me)
+          </button>
+        </section>
       )}
     </Layout>
   );

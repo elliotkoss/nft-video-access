@@ -28,13 +28,13 @@ img {
   display: block;
 }
 
-button {
-  width: 228px;
-  height: 52px;
-  background: #FFFFFF;
-  border-radius: 10px;
-  margin: 0;
-  border:none;
-  font-size:25px;
-  color:#333;
+.btn {
+  margin-top:20px;
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
 }
