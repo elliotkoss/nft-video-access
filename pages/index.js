@@ -56,7 +56,7 @@ export default function Home({ allPostsData }) {
           <section
             className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
           >
-            <button className="btn btn-blue" onClick={checkout}>Connect Wallets</button>
+            <button className="btn btn-blue" onClick={checkout}>Connect Wallet</button>
           </section>
         </div>
       )}
