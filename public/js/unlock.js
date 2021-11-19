@@ -8,7 +8,7 @@ function unlockSetup() {
   window.unlockProtocolConfig = {
     network: 4,
     locks: {
-      "0x6F6da4B0d5d19f0A889681bf387dFAb7b5503Da4": {
+      "0xE44Ed2C9e67516AF92469a89CEAcC50e235c5B47": {
         name: "Purchase your ticket today!",
       },
     },
