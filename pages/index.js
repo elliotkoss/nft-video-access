@@ -36,7 +36,7 @@ export default function Home({ allPostsData }) {
 
   const showEvent = (e) => {
     e.preventDefault();
-    router.push('/streams/0d6foz59s7i0l8zx');
+    router.push("/streams/40f43vq6m8036qgu");
   }
 
   return (

@@ -42,7 +42,7 @@ const StreamPage: React.FC<Props> = ({ state }) => {
       });
       setNotLoaded(false);
     }
-  }, [router.isReady]);
+  }, [router.isReady, videoEl]);
 
   return (
     <div className="container min-h-screen justify-center w-full flex flex-col items-center overflow-auto pb-14">
